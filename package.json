@@ -1,0 +1,22 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "Discord bot that gives weekly updates on who is the best at Counter-Strike",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/johhncastro/GlobalGod.git"
+  },
+  "author": "popularnow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johhncastro/GlobalGod/issues"
+  },
+  "homepage": "https://github.com/johhncastro/GlobalGod#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1"
+  }
+}
