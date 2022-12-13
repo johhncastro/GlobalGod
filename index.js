@@ -8,7 +8,7 @@ client.on('ready', () => {
     //708534970934624331
 
     console.log("globalbot is online and running fine");
-    console.log(TOKEN.emv)
+
     client.user.setActivity(`pop is global`, {type: 'WATCHING'});
 
 });
@@ -35,8 +35,19 @@ client.on('messageCreate', (message) => {
         message.channel.send('@Bray is silver')
     }
 
-})
+    // music bot commands
+
+    if (command === "play"){
+        // play a song 
+    } else if (command === "skip") {
+        //skip current song
+    } else if (command === 'stop'){
+        // stop music and clear the queue
+    } else if (command === 'queue'){
+        // show the current queue
+    }
+});
 
 
 
-client.login('MTA1MTgwODI3NTEzNTQ2MzQ1NQ.GYUdEW.WlJzGIgjxzHT2oAvKv_SbL3EU9Zmtl9lAnVwu4');
+client.login('insert token here');
