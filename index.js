@@ -1,6 +1,7 @@
 const {Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, Permissions} = require(`discord.js`);
 
 const prefix = '>';
+const playPrefix = '>play';
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
 
@@ -34,20 +35,37 @@ client.on('messageCreate', (message) => {
     if (command === 'test'){
         message.channel.send('@Bray is silver')
     }
-
-    // music bot commands
-
-    if (command === "play"){
-        // play a song 
-    } else if (command === "skip") {
-        //skip current song
-    } else if (command === 'stop'){
-        // stop music and clear the queue
-    } else if (command === 'queue'){
-        // show the current queue
-    }
 });
 
+client.on('message', message => {
+    // Check if the message starts with the prefix
+    if (message.content.startsWith(playPrefix)) {
+      // Get the user's voice channel
+      const voiceChannel = message.member.voice.channel;
+      if (!voiceChannel) {
+        // If the user is not in a voice channel, send a message
+        return message.reply('Please join a voice channel first!');
+      }
+  
+      // Join the user's voice channel
+      voiceChannel.join().then(connection => {
+        // Play the audio file
+        const audio = connection.play('audio.mp3');
+  
+        // Send a message when the audio file has finished playing
+        audio.on('finish', () => {
+          message.channel.send('Finished playing the audio file.');
+        });
+      });
+    }
+  });
+  
+
+  
+  
+  
+  
+  
 
 
 client.login('insert token here');
